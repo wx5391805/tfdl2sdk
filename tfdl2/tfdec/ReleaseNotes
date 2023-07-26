@@ -1,0 +1,20 @@
+Release Notes 2022.02.16:
+    1. Improve tdfec_destroy speed.
+
+Release Notes 2022.02.17:
+    1. Fix a thread issue when destroy.
+
+Release Notes 2022.02.18:
+    1. Resetting session wait for longer.
+    2. Fix a fd issue after session reset.
+
+Release Notes 2022.03.11:
+    1. tfdec_enqueue_buffer will be always non-block.
+    2. Add a tfdec_query_input_queue interface. 
+
+
+Release Notes 2022.03.31:
+    1. Add the tfdec_enum_devices api function.
+
+Release Notes 2022.04.14:
+    1. Add the tfdec_query_version api function.

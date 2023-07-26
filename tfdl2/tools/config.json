@@ -1,0 +1,13 @@
+{
+  "mergelayer": true,
+  "alignment": false,
+  "swapConvFC": true,
+  "highAccuracyMode": {
+    "open": true,
+    "auto": true
+  },
+  "FCWeightMode": "int8",
+  "CalibrationMethod": {
+
+  }
+}

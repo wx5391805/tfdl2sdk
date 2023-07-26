@@ -1,0 +1,16 @@
+1. tfenc library
+    tfenc_service: Encoder deamon service which manipulates the encoder hardware to handle the encoding request. 
+                   Ensure the service program is running before user application begins encoding.
+    libtfenc.so  : Binary encoder library, which offer APIs to the user application.
+    tfenc_api.h  : tfenc header file.
+
+2. APIs : please also see the tfenc_api.h head file.
+    1. tfenc_encoder_create : creates an encoder instance.
+    2. tfenc_encoder_destroy : destroys an encoder instance.
+    3. tfenc_process_frame : requests encoder process one source frame.
+    4. tfenc_callback : callback data structure, carries pointer to one callback function invoked
+                      when the encoder ended some frames.
+    5. tfenc_query_device_num : query how many encoder devices.
+
+3. Exmaples
+    sample/test.c : a simple encoder test, shows how to use the api to encode a video source.

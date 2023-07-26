@@ -1,0 +1,23 @@
+1. tfdec library
+   libtfdec.so : decoder binary library, which offers APIs to video applications.
+   libtfdec.h  : tfdec header file, defines the decoder function prototypes.
+
+2. Firmware
+    Frimware is a set of instructions executed on the VPU. Driver will load conresponding firmware when create a decoder session. The firmware path is /lib/firmware. 
+  
+    ex : a H264 decoder firmware
+    /lib/firmware/h264dec.fwb
+
+3. APIs : please see the libtfdec.h and samples to get more infomation.
+    1. tfdec_enum_devices : enum the decoder devices.
+    2. tfdec_create : create a decoder session.
+    3. tfdec_destroy : destroy a decoder session.
+    4. tfdec_enqueue_buffer : push a video stream source into the decoding queue, the decoding will be executed asynchrous
+    5. tfdec_return_output : user application release the output buffer of the decoder session.
+    6. tfdec_callback_func : callback function which user appliation register to the decoder session.
+    7. tfdec_query_input_queue : query how many input buffers available in the queue.
+    7. tfdec_query_version: query tfdec sdk and kernel driver version.
+
+4. Examples
+   To Build examples, please set the CROSS_COMPILE used on your platform, and the tfdec header file path.
+   - simple : This example load a single h264 I frame from  "test.h264". It shows how to push H264 bitstream frame by frame into the decode, and shows how the application should handle the decoder callback.

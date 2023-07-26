@@ -1,0 +1,41 @@
+2022.04.28
+  - release tfenc video encoder sdk.
+
+2022.05.26
+  - tfenc support H264 encoding.
+
+2022.06.08
+  - Add 4K video encoding support.
+
+2022.06.14
+  - Fix some corruption issues.
+
+2022.07.07
+  - Enable encoder L2 cache.
+
+2022.07.17
+  - Add Sps, Pps info for I-frames.
+
+2022.07.18
+  - Fix 4k encoder create/destroy stress test isssue.
+  - Set IDR frequnce as gop length.
+  - Add restart gop interface.
+
+2022.07.29
+  - Fix a multi-thread clean issue.
+
+2022.08.03
+  - Add 10bits source support
+
+2022.08.15
+  - Add frame_rate in setting config.
+
+2023.04.12
+  - tfenc_service : add multiple encoder support.
+
+2023.04.19
+  - add tfenc_query_device_num api.
+  - add device_id param in the tfenc_setting to support select encoder device when creating.
+
+2023.04.23
+  - add rc_mode param in the tfenc_setting to select CBR/VBR.
