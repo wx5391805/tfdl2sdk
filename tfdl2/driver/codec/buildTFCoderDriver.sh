@@ -26,7 +26,7 @@ if [[ $? != 0 ]]; then
 
   echo 'cpuCount:'"${cpuCount}"_"${driverCount}"
 
-  TFCodecDriverList=$(ls -l | grep ^d | awk -F ' ' '{print $9}')
+  TFCodecDriverList=$(ls -l | grep ^d | awk -F ' ' '{print $9}'| sort -V)
   if [[ ${operator} == "build" ]]; then
     cp -v ../../tfdec/firmware/* /lib/firmware/
     for i in ${TFCodecDriverList}; do
@@ -47,7 +47,7 @@ if [[ $? != 0 ]]; then
         cd "${i}"/"${output_path}" || exit
 
         export LINUX_VERSION=$(cat /etc/issue | awk -F ' ' '{print $1}' | awk 'NR==1')
-        make
+        make -j40
 
         mod_index=$(echo "${i}" | awk -F '-' '{print $2}')
         if [[ ${mod_index} == "e200" ]]; then
@@ -57,6 +57,7 @@ if [[ $? != 0 ]]; then
           insmod mve_driver"${mod_index}".ko
           echo "TFcodec mve_driver""${mod_index}"" insmod success."
         fi
+        chmod 666 /dev/mv500*
         cd - || exit
         ((driverCount = driverCount - 1))
       fi
